@@ -14,7 +14,8 @@ module.exports = {
                 url
             } = data.articles[0];
 
-            return message.reply(`Latest news to crypto: \n
+            return message.reply(`
+            Latest news to crypto: \n
             Title: ${title}\n
             Description: ${description}\n
             Source: ${name}\n

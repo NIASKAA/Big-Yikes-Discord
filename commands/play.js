@@ -5,7 +5,7 @@ const queue = new Map();
 
 module.exports = {
     name: 'play',
-    aliases: ['skip', 'step'],
+    aliases: ['skip', 'stop'],
     description: 'Cool beats bro',
     async execute(message, args, cmd, client, Discord) {
         const voiceChannel = message.member.voice.channel;
@@ -75,7 +75,7 @@ const videoPlayer = async (guild, song) => {
         queue.delete(guild.id);
         return;
     } 
-    const stream = ytdel(song.url, {filter: 'audioonly'});
+    const stream = ytdl(song.url, {filter: 'audioonly'});
     songQueue.connection.play(stream, {seek: 0, volume: 0.5})
     .on('finish', () => {
         songQueue.songs.shift();

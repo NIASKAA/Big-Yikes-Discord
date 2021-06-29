@@ -8,7 +8,7 @@ module.exports = {
         I can do these commands for now: \n
         !ping \n
         !play \n
-        !leave \n
+        !stop \n
         !skip \n
         !price \n
         !news \n

@@ -7,7 +7,7 @@ client.login(TOKEN);
 client.commands = new Discord.Collection();
 client.events = new Discord.Collection();
 
-['commandHandler', 'eventHandler'].forEach(handler => {
+['commandHandler', 'eventHandlers'].forEach(handler => {
     require(`./handlers/${handler}`)(client, Discord);
 }) 
 
