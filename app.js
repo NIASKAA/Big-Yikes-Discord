@@ -1,19 +1,15 @@
 const Discord = require('discord.js');
+const fs = require('fs');
 const client = new Discord.Client();
 require('dotenv').config();
 const TOKEN = process.env.TOKEN;
-const prefix = "!";
 client.login(TOKEN);
+client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
 
-client.on('ready', () => {
-    console.info(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', msg => {
-    if(msg.content === 'ping') {
-        msg.channel.send('pong')
-    }
-});
+['commandHandler', 'eventHandler'].forEach(handler => {
+    require(`./handlers/${handler}`)(client, Discord);
+}) 
 
 client.on('message', msg => {
     if(msg.content === 'Hi') {
