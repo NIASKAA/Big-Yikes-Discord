@@ -12,7 +12,9 @@ module.exports = {
         !skip \n
         !price \n
         !news \n
-        !help
+        !help \n
+        !joke \n
+        !roast \n
         `);
     }
 };

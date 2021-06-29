@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+const mongoose = require('mongoose');
+
 const client = new Discord.Client();
 require('dotenv').config();
 const TOKEN = process.env.TOKEN;
@@ -11,34 +13,16 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client, Discord);
 }) 
 
-client.on('message', msg => {
-    if(msg.content === 'Hi') {
-        msg.reply('Helloo')
-    }
-});
-
-client.on('message', msg => {
-    if(msg.content === 'Hello') {
-        msg.reply('Hi')
-    }
-});
-
-client.on('message', msg => {
-    if(msg.content === 'Marco') {
-        msg.channel.send('Pollo')
-    }
-});
-
-const badjokes = 
-[
-    "HAMBURGER PLS",
-    "I have no idea what to even joke about.."
-];
-
-client.on('message', (msg) => {
-    if(msg.content === '?joke') {
-        msg.channel.send(badjokes[Math.floor(Math.random() * badjokes.length)]);
-    }
+mongoose.connect(process.env.MONGODB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+})
+.then(() => {
+    console.log("Connected to mongoDB database!");
+})
+.catch((err) => {
+    console.log(err);
 });
 
 client.on('guildMemberAdd', guildMember => {
