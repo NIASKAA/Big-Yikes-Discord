@@ -16,7 +16,6 @@ module.exports = {
         !joke \n
         !roast \n
         \n
-
         Economy commands: \n
         !balance \n
         !daily \n
