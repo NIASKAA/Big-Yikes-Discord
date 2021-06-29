@@ -1,0 +1,22 @@
+const profileModel = require('../models/profileSchema');
+
+module.exports = {
+    name: 'work',
+    description: 'Work your ass off please',
+    cooldown: 86400,
+    async execute(message, args, cmd, client, Discord, profileData) {
+        const jobs = ['Software Developer', 'Popo', 'Doctor', 'Crackhead', 'Mechanic', 'Miner'];
+
+        const jobList = Math.floor(Math.random() * jobs.length);
+        const dailyPay = Math.floor(Math.random() * 250) + 1;
+        const response = await profileModel.findOneAndUpdate({
+            userID: message.author.id,
+        },
+        {
+            $inc: {
+                coins: dailyPay,
+            }
+        });
+        return message.channel.send(`You worked as a ${jobs[jobList]} today and earned ${dailyPay}!`);
+    }
+}

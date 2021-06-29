@@ -1,18 +1,19 @@
 const profileModel = require('../models/profileSchema');
 
 module.exports = {
-    name: 'beg',
-    description: "Beg for money cause you broke af",
+    name: 'daily',
+    description: 'claim your daily money',
+    cooldown: 86400,
     async execute(message, args, cmd, client, Discord, profileData) {
-        const randomNumber = Math.floor(Math.random() * 400) + 1;
+        const DailyCoins = Math.floor(Math.random() * 200) + 1;
         const response = await profileModel.findOneAndUpdate({
             userID: message.author.id,
         },
         {
             $inc: {
-                coins: randomNumber, 
+                coins: DailyCoins,
             }
         });
-        return message.channel.send(`${message.author.id} begged and received ${randomNumber}`);
-    },
-};
+        return message.channel.send(`${message.author.username} got ${DailyCoins} from dailies!`);
+    }
+}

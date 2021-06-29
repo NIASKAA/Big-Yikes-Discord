@@ -3,7 +3,7 @@ module.exports = {
     description: 'BOI YOU BOUT TO GET ROASTED',
     async execute(message, args, cmd, client, Discord) {
         const roast = [
-            "at least my mom pretends to love me",
+        "at least my mom pretends to love me",
         "Bards will chant parables of your legendary stupidity for centuries, You",
         "Don't play hard to get when you are hard to want",
         "Don't you worry your pretty little head about it. The operative word being little. Not pretty.",

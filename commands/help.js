@@ -15,6 +15,14 @@ module.exports = {
         !help \n
         !joke \n
         !roast \n
+        \n
+
+        Economy commands: \n
+        !balance \n
+        !daily \n
+        !beg \n
+        !withdraw \n
+        !deposit \n
         `);
     }
 };

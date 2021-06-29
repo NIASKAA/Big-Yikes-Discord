@@ -1,4 +1,5 @@
 const profileModel = require("../../models/profileSchema");
+const cooldowns = new Map();
 
 module.exports = async (Discord, client, message) => {
     const prefix = '!';
@@ -27,5 +28,25 @@ module.exports = async (Discord, client, message) => {
 
     const command = client.commands.get(cmd) || client.commands.find(a => a.aliases && a.aliases.includes(cmd));
 
+    if(!cooldowns.has(command.name)) {
+        cooldowns.set(command.name, new Discord.Collection());
+    }
+
+    const currentTime = Date.now();
+    const timeStamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown) * 1000;
+
+    if(timeStamps.has(message.author.id)) {
+        const expireTime = timeStamps.get(message.author.id) + cooldownAmount;
+        if(currentTime < expireTime) {
+            const timeLeft = (expireTime - currentTime) /1000;
+            return message.reply(`Please wait ${timeLeft.toFixed(1)} more seconds before using command`);
+        }
+    }
+
+    timeStamps.set(message.author.id, currentTime);
+    setTimeout(() => timeStamps.delete(message.author.id), cooldownAmount);
+
     if(command) command.execute(message, args, cmd, client, Discord, profileData);
+
 }
