@@ -50,7 +50,7 @@ module.exports = {
                         coins: animalPrice,
                     }
                 }, data);
-                message.reply(`You fished a ${fish[randomAnimal]} and got ${animalPrice}`);
+                message.reply(`You fished a ${animals[randomAnimal]} and got ${animalPrice}`);
             }
         })
     }
