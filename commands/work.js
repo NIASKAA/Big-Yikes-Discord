@@ -2,7 +2,7 @@ const profileModel = require('../models/profileSchema');
 
 module.exports = {
     name: 'work',
-    cooldown: 86400,
+    cooldown: 1000,
     description: 'Work your ass off please',
     async execute(message, args, cmd, client, Discord, profileData) {
         const jobs = [

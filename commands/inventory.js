@@ -9,10 +9,12 @@ module.exports = {
         },
         async(err, data) => {
             if(!data) return message.channel.send('Your inventory is empty')
-            const mappedData = Object.keys(data.inventory).map((key) => {
-                return `${key}${data.inventory[key]}`
+            const mappedData = Objects.keys(data.inventory).map((key) => {
+                return `${key}(${data.inventory[key]})`
             }).join(", ");
-            message.send(mappedData);
-        })
-    }
-}
+
+            message.channel.send(mappedData);
+        }
+        );
+    },
+};

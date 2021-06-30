@@ -9,18 +9,17 @@ module.exports = {
         const itemToBuy = args[0].toLowerCase();
 
         const validItem = !!items.find((val) => val.item.toLowerCase() === itemToBuy);
-        if(!validItem) return message.send('The item is not valid');
+        if(!validItem) return message.reply('The item is not valid');
 
         const itemPrice = items.find((val) => (val.item.toLowerCase()) === itemToBuy).price;
 
-        const userBalance = await profileData.coins
-        if(userBalance < itemPrice) return message.reply("You don't have enough money!");
+        
+        if(profileData.coins < itemPrice) return message.reply("You don't have enough money!");
 
-        const params = {
-            userID: message.author.id
-        };
-
-        profileModel.findOne(params, async (err, data) => {
+        profileModel.findOne({
+            UserID: message.author.id
+        },
+        async (err, data) => {
             if(data) {
                 const hasItem = Object.keys(data.inventory).includes(itemToBuy);
                 if(!hasItem) {
@@ -29,7 +28,7 @@ module.exports = {
                     data.inventory[itemToBuy]++;
                 }
                 console.log(data);
-                await profileModel.findOneAndUpdate(params, data);
+                await profileModel.findOneAndUpdate({userID: message.author.id}, data);
             }
             message.channel.send(`You bought ${itemToBuy}`);
         })

@@ -1,5 +1,3 @@
-const { execute } = require("./play");
-
 module.exports = {
     name: 'help',
     description: 'List of commands available',
@@ -13,7 +11,7 @@ module.exports = {
         !price \n
         !news \n
         !help \n
-        !joke \n
+        !jokes \n
         !roast \n
         \n
         Economy commands: \n
@@ -22,6 +20,8 @@ module.exports = {
         !beg \n
         !withdraw \n
         !deposit \n
+        !work \n
+        !shop \n 
         `);
     }
 };
