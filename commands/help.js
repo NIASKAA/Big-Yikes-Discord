@@ -14,6 +14,7 @@ module.exports = {
         !jokes \n
         !roast \n
         !wey \n
+        !poll \n
         \n
         Economy commands: \n
         !balance \n
@@ -27,6 +28,7 @@ module.exports = {
         !inventory \n
         !fish \n
         !rob \n
+        !hunt \n
         `);
     }
 };

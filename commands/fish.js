@@ -1,5 +1,4 @@
 const profileModel = require('../models/profileSchema');
-const items = require('../models/fishList');
 
 module.exports = {
     name: 'fish',
@@ -20,7 +19,10 @@ module.exports = {
             "📦 `(Package)`",
             "🏓 `(Ping Pong)`",
             "🦑 `(Squid)`",
-            "⚽ `(Soccer)`"
+            "⚽ `(Soccer)`",
+            "🐙 `(Octopus)`",
+            "🐌 `(Snail)`",
+            "🐚 `(Shell)`",
         ]
         const randomFish = Math.floor((Math.random() * fish.length));
         const fishPrice = Math.floor((Math.random() * 500) + 1);
