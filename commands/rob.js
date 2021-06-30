@@ -9,11 +9,11 @@ module.exports = {
         let author = await message.author.id
         let random = Math.floor(Math.random() * 200) + 1;
 
-        if(!user) {
+        if(!target) {
             return message.channel.send('You need to tell me who to rob at least bruh');
         }
         if(targetUser < 0) {
-            return message.channel.send(`${user.user.username} is broke af and don't have anything left to rob`)
+            return message.channel.send(`${target} is broke af and don't have anything left to rob`)
         }
         try{
             const targetData = await profileModel.findOne({
