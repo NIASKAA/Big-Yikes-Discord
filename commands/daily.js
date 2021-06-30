@@ -2,8 +2,8 @@ const profileModel = require('../models/profileSchema');
 
 module.exports = {
     name: 'daily',
-    description: 'claim your daily money',
     cooldown: 86400,
+    description: 'claim your daily money',
     async execute(message, args, cmd, client, Discord, profileData) {
         const DailyCoins = Math.floor(Math.random() * 200) + 1;
         const response = await profileModel.findOneAndUpdate({

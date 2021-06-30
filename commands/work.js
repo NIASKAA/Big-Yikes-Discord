@@ -2,10 +2,22 @@ const profileModel = require('../models/profileSchema');
 
 module.exports = {
     name: 'work',
-    description: 'Work your ass off please',
     cooldown: 86400,
+    description: 'Work your ass off please',
     async execute(message, args, cmd, client, Discord, profileData) {
-        const jobs = ['Software Developer', 'Popo', 'Doctor', 'Crackhead', 'Mechanic', 'Miner'];
+        const jobs = [
+            'Software Developer', 
+            'Popo', 
+            'Doctor', 
+            'Crackhead', 
+            'Mechanic', 
+            'Miner', 
+            'Poop Collector',
+            'Priest',
+            'barista',
+            'granny fighter',
+            'thief'
+        ];
 
         const jobList = Math.floor(Math.random() * jobs.length);
         const dailyPay = Math.floor(Math.random() * 250) + 1;
