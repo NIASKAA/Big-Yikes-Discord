@@ -13,6 +13,7 @@ module.exports = {
         !help \n
         !jokes \n
         !roast \n
+        !wey \n
         \n
         Economy commands: \n
         !balance \n

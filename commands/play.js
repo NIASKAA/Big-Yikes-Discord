@@ -10,10 +10,6 @@ module.exports = {
     async execute(message, args, cmd, client, Discord) {
         const voiceChannel = message.member.voice.channel;
         if(!voiceChannel) return message.channel.send('You need to be in a voice channel bro');
-        const permissions = voiceChannel.permissionsFor(message.client.user);
-        if(!permissions.has('CONNECT')) return message.channel.send('You dont have permissions brah');
-        if(!permissions.has('SPEAK')) return message.channel.send('You dont have permissions brah');
-
         const serverQueue = queue.get(message.guild.id);
 
         if(cmd === 'play') {
