@@ -15,4 +15,4 @@ module.exports = [
         item: "Mansion",
         price: 1000000
     }
-]
+];
