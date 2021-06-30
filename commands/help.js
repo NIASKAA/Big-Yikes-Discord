@@ -22,6 +22,8 @@ module.exports = {
         !deposit \n
         !work \n
         !shop \n 
+        !buy \n
+        !inventory \n
         `);
     }
 };

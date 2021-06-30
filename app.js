@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const mongoose = require('mongoose');
-
+const profile = require('./models/profileSchema');
 const client = new Discord.Client();
 require('dotenv').config();
 const TOKEN = process.env.TOKEN;

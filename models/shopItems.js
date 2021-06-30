@@ -1,18 +1,26 @@
 module.exports = [
     {
-        item: "Fishing Rod",
+        item: "borgor",
+        price: 10
+    },
+    {
+        item: "fishingrod",
         price: 100
     },
     {
-        item: "Car",
+        item: 'balenciaga',
+        price: 1000
+    },
+    {
+        item: "car",
         price: 20000
     },
     {
-        item: "House",
+        item: "house",
         price: 100000
     },
     {
-        item: "Mansion",
+        item: "mansion",
         price: 1000000
     }
 ];
