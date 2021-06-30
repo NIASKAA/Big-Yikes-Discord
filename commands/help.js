@@ -25,6 +25,8 @@ module.exports = {
         !shop \n 
         !buy \n
         !inventory \n
+        !fish \n
+        !rob \n
         `);
     }
 };
