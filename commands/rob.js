@@ -6,6 +6,7 @@ module.exports = {
     description: 'Being a thief',
     async execute(message, args, cmd, client, Discord, profileData) {
         let user = message.mentions.users.first()
+        let targetUser = user.id.coins
         let random = Math.floor(Math.random() * 200) + 1;
 
         if(!user) {
@@ -15,10 +16,6 @@ module.exports = {
             return message.channel.send(`${user} is broke af and don't have anything left to rob`)
         }
         try{
-            const targetData = await profileModel.findOne({
-                userID: user.id
-            });
-            if(!targetData) return message.channel.send("This user don't exist");
             await profileModel.findOneAndUpdate({
                 userID: user.id,
             },
@@ -38,6 +35,6 @@ module.exports = {
         } catch(err) {
             console.log(err);
         }
-        message.channel.send(`You robbed ${user.user.username} and took ${random}`);
+        message.channel.send(`You robbed ${user} and took ${random}`);
     }
 }
