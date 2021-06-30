@@ -24,6 +24,10 @@ module.exports = {
         ]
         const randomFish = Math.floor((Math.random() * fish.length));
         const fishPrice = Math.floor((Math.random() * 500) + 1);
+        params = {
+            userID: message.author.id,
+            serverID:  message.guild.id
+        }
         profileModel.findOne(params, async(err, data) => {
             if(data) {
                 const getFish = Object.keys(data.inventory).includes(randomFish);
